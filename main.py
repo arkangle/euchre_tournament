@@ -34,6 +34,7 @@ for round in rounds:
     round_count += 1
     print("Round %s" % round_count)
     for table in round.getTables():
-        print(table)
+        print(table,end=": ")
         for player in table.getPlayers():
-            print(player)
+            print("%2s" % player.getName(),end=" ")
+        print("")

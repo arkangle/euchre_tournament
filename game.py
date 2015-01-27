@@ -9,8 +9,8 @@ class Game:
         player_indexes = list(range(0,len(self.players)))
         random.shuffle(player_indexes)
         round = Round()
-        for table in self.tables:
-            table.newRound()
+        for Table in self.tables:
+            table = Table.new()
             for p in range(0,4):
                 player_index = player_indexes.pop()
                 player = self.players[player_index]

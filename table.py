@@ -6,8 +6,8 @@ class Table:
         self.players.append(player)
     def getPlayers(self):
         return self.players
-    def newRound(self):
-        self.players = []
     def __str__(self):
         return "Table " + str(self.name)
+    def new(self):
+        return Table(self.name)
 

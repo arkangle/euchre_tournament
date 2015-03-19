@@ -3,22 +3,14 @@ from player import Player
 from partner import Partner
 
 class TestPartner(unittest.TestCase):
-    def testEqual(self):
-        player1 = Player(1)
-        player2 = Player(2)
-        partner1 = Partner(player1,player2)
-        partner2 = Partner(player1,player2)
-        partner3 = Partner(player2,player1)
-        self.assertEqual(partner1,partner2)
-        self.assertEqual(partner3,partner2)
-        self.assertEqual(partner1,partner3)
-    def testNotEqual(self):
-        player1 = Player(1)
-        player2 = Player(2)
-        player3 = Player(3)
-        partner1 = Partner(player1,player2)
-        partner2 = Partner(player1,player3)
-        partner3 = Partner(player2,player3)
-        self.assertNotEqual(partner1,partner2)
-        self.assertNotEqual(partner1,partner2)
-        self.assertNotEqual(partner1,partner3)
+    def setUp(self):
+        player1 = Player("bob")
+        player2 = Player("sue")
+        self.partner = Partner(player1,player2)
+    def testGetPlayers(self):
+        players = self.partner.getPlayers()
+        self.assertEqual(players[0].getName(),"bob")
+        self.assertEqual(players[1].getName(),"sue")
+    def testToString(self):
+        strung = str(self.partner)
+        self.assertEqual(strung,"Partners (bob,sue)")
